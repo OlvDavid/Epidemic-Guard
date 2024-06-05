@@ -26,6 +26,12 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".menu"
+            android:exported="true">
+
+        </activity>
+
     </application>
 
 </manifest>
