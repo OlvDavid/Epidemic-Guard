@@ -77,6 +77,15 @@ public class cadastro extends AppCompatActivity {
 
         String email = editEmail.getText().toString();
         String senha = editSenha.getText().toString();
+        String cpf = editCPF.getText().toString();
+
+        if (!validarCPF(cpf)) {
+            Snackbar snackbar = Snackbar.make(v, "CPF inválido", Snackbar.LENGTH_SHORT);
+            snackbar.setBackgroundTint(Color.WHITE);
+            snackbar.setTextColor(Color.BLACK);
+            snackbar.show();
+            return;
+        }
 
         usuario.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -94,7 +103,6 @@ public class cadastro extends AppCompatActivity {
                     String erro;
                     try {
                         throw task.getException();
-
                     }catch (FirebaseAuthWeakPasswordException e) {
                         erro = "Digite uma senha com no mínimo 6 caracteres";
                     }catch (FirebaseAuthUserCollisionException e) {
@@ -104,7 +112,6 @@ public class cadastro extends AppCompatActivity {
                     }catch (Exception e){
                         erro = "Erro ao cadastrar usuário";
                     }
-                    //Toast.makeText(cadastro.this, erro, Toast.LENGTH_SHORT).show();
                     Snackbar snackbar = Snackbar.make(v, erro, Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
@@ -156,5 +163,12 @@ public class cadastro extends AppCompatActivity {
         btnCadastrar = findViewById(R.id.btnCadastrar);
 
     }
+
+    private boolean validarCPF(String cpf) {
+        cpf = cpf.replaceAll("\\D", "");
+
+        return cpf.length() == 11;
+    }
+
 
 }
