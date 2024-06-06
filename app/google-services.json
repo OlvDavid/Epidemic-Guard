@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759715527156",
+    "project_id": "epidemic-guard-abf63",
+    "storage_bucket": "epidemic-guard-abf63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759715527156:android:401be6537798d90361e1a1",
+        "android_client_info": {
+          "package_name": "com.guard.epidemicguard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwHOUF61nqYHGFMk-D34AHS5jYHCcfGEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

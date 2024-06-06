@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+            android:maxLength="29"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,6 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"
+            android:inputType="text|textPassword"
+            android:maxLength="29"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome"
+            android:maxLength="29"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,6 +96,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CPF"
+            android:inputType="number"
+            android:maxLength="29"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,6 +109,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="110dp"
         android:backgroundTint="@color/cinza"
+        android:onClick="setBtnCadastrar"
         android:text="CADASTRAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,11 +131,13 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="125dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="125dp"
         android:backgroundTint="@color/cinza"
         android:onClick="voltar"
         android:text="VOLTAR"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
