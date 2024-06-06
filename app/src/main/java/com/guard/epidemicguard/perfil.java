@@ -2,9 +2,11 @@ package com.guard.epidemicguard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -31,6 +33,7 @@ public class perfil extends AppCompatActivity {
     private Button btnSair;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String usuarioID;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,6 @@ public class perfil extends AppCompatActivity {
             return insets;
         });
         inicarComponentes();
-
         imageVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,10 +57,11 @@ public class perfil extends AppCompatActivity {
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(perfil.this, login.class );
-                startActivity(i);
-                finish();
+                progressBar.setVisibility(View.VISIBLE);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run(){sair();}
+                }, 3000);
             }
         });
     }
@@ -83,11 +86,20 @@ public class perfil extends AppCompatActivity {
         });
     }
 
+    private void sair(){
+        FirebaseAuth.getInstance().signOut();
+        Intent i = new Intent(perfil.this, login.class );
+        progressBar.setVisibility(View.VISIBLE);
+        startActivity(i);
+        finish();
+    }
+
     private void inicarComponentes(){
         imageVoltar = findViewById(R.id.imageVoltar);
         textNome = findViewById(R.id.textNome);
         textEmail = findViewById(R.id.textEmail);
         textCPF = findViewById(R.id.textCpf);
         btnSair = findViewById(R.id.btnSair);
+        progressBar = findViewById(R.id.progressBar);
     }
 }
