@@ -5,10 +5,7 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="cadastro">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="menu">
+      <SelectionState runConfigName="perfil">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
