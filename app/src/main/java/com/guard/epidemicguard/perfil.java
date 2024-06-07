@@ -23,8 +23,6 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import org.w3c.dom.Document;
-
 public class perfil extends AppCompatActivity {
 
     private ImageView imageVoltar;
@@ -51,6 +49,7 @@ public class perfil extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(perfil.this, menu.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -64,6 +63,8 @@ public class perfil extends AppCompatActivity {
                 }, 3000);
             }
         });
+
+
     }
 
     @Override
@@ -95,7 +96,7 @@ public class perfil extends AppCompatActivity {
     }
 
     private void inicarComponentes(){
-        imageVoltar = findViewById(R.id.imageVoltar);
+        imageVoltar = findViewById(R.id.imageBack);
         textNome = findViewById(R.id.textNome);
         textEmail = findViewById(R.id.textEmail);
         textCPF = findViewById(R.id.textCpf);

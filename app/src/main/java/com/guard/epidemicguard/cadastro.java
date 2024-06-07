@@ -153,6 +153,7 @@ public class cadastro extends AppCompatActivity {
     public void voltar(View v){
         Intent i = new Intent(this, login.class);
         startActivity(i);
+        finish();
     }
 
     private void inicarComponentes(){

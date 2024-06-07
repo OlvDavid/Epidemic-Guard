@@ -115,6 +115,7 @@ public class login extends AppCompatActivity {
     public void cadastrar(View v){
         Intent i = new Intent(this, cadastro.class);
         startActivity(i);
+        finish();
     }
 
     private void iniciarComponetes(){

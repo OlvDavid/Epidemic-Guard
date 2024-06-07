@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class menu extends AppCompatActivity {
 
-    private ImageView perfil;
+    private ImageView perfil, imageMapa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +29,25 @@ public class menu extends AppCompatActivity {
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(menu.this, com.guard.epidemicguard.perfil.class);
+                Intent i = new Intent(menu.this, perfil.class);
                 startActivity(i);
             }
         });
+
+        imageMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(menu.this, mapa.class);
+                startActivity(i);
+                finish();
+
+            }
+        });
+
     }
 
     private void iniciarComponentes(){
         perfil = findViewById(R.id.imagePerfil);
+        imageMapa = findViewById(R.id.imageMapa);
     }
 }
