@@ -127,7 +127,6 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
                         LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
                         map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
-
                     } else {
                         Toast.makeText(mapa.this, "Endereço não encontrado: " + location, Toast.LENGTH_SHORT).show();
                     }

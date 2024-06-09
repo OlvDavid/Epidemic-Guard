@@ -1,5 +1,8 @@
 package com.guard.epidemicguard;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -56,11 +59,7 @@ public class perfil extends AppCompatActivity {
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run(){sair();}
-                }, 3000);
+                confirmarSaida();
             }
         });
 
@@ -78,7 +77,7 @@ public class perfil extends AppCompatActivity {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                if(documentSnapshot != null){
+                if (documentSnapshot != null) {
                     textNome.setText(documentSnapshot.getString("nome"));
                     textCPF.setText(documentSnapshot.getString("CPF"));
                     textEmail.setText(email);
@@ -87,20 +86,42 @@ public class perfil extends AppCompatActivity {
         });
     }
 
-    private void sair(){
+    private void sair() {
         FirebaseAuth.getInstance().signOut();
-        Intent i = new Intent(perfil.this, login.class );
-        progressBar.setVisibility(View.VISIBLE);
+        Intent i = new Intent(perfil.this, login.class);
         startActivity(i);
         finish();
+
+
     }
 
-    private void inicarComponentes(){
+    private void inicarComponentes() {
         imageVoltar = findViewById(R.id.imageBack);
         textNome = findViewById(R.id.textNome);
         textEmail = findViewById(R.id.textEmail);
         textCPF = findViewById(R.id.textCpf);
         btnSair = findViewById(R.id.btnSair);
         progressBar = findViewById(R.id.progressBar);
+    }
+
+    private void confirmarSaida() {
+        if (!isFinishing()) {
+            new AlertDialog.Builder(this)
+                    .setMessage("Deseja deslogar do aplicativo?")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            progressBar.setVisibility(View.VISIBLE); // Exibe a barra de progresso
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    sair();
+                                }
+                            }, 3000);
+                        }
+                    })
+                    .setNegativeButton("Não", null)
+                    .show();
+        }
     }
 }

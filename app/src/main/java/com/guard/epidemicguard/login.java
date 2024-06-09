@@ -1,5 +1,8 @@
 package com.guard.epidemicguard;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -115,7 +118,23 @@ public class login extends AppCompatActivity {
     public void cadastrar(View v){
         Intent i = new Intent(this, cadastro.class);
         startActivity(i);
-        finish();
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        if (!isFinishing()) {
+            new AlertDialog.Builder(this)
+                    .setMessage("Deseja realmente sair do aplicativo?")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finishAffinity();
+                        }
+                    })
+                    .setNegativeButton("Não", null)
+                    .show();
+        }
     }
 
     private void iniciarComponetes(){
