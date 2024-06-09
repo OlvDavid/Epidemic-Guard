@@ -122,10 +122,17 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
                         e.printStackTrace();
                     }
 
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+                    if (addressList != null && !addressList.isEmpty()) {
+                        Address address = addressList.get(0);
+                        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                        map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+
+
+                    } else {
+                        Toast.makeText(mapa.this, "Endereço não encontrado: " + location, Toast.LENGTH_SHORT).show();
+                    }
                 }
+
 
                 return true;
             }
@@ -137,6 +144,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
                 return false;
             }
         });
+
     }
 
     // Método para buscar sugestões de endereços
@@ -249,7 +257,8 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedSuggestion = (String) parent.getItemAtPosition(position);
-                mapSearchView.setQuery(selectedSuggestion, false);
+                mapSearchView.setQuery(selectedSuggestion, true);
+
             }
         });
 
