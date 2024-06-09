@@ -62,7 +62,6 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
     // Declarações de variáveis
     private GoogleMap map;
     private SearchView mapSearchView;
-    private ImageView imageVoltar;
     private ListView suggestionsListView;
     private ArrayAdapter<String> suggestionsAdapter;
     private static final int FINE_PERMISSION_REQUEST_CODE = 1;
@@ -102,16 +101,6 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
 
         // Inicialização dos componentes da interface
         iniciarComponentes();
-
-        // Configuração do clique no botão de voltar
-        imageVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mapa.this, menu.class);
-                startActivity(i);
-                finish();
-            }
-        });
 
         // Configuração da barra de pesquisa
         mapSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -250,7 +239,6 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
 
     // Método para inicializar os componentes da interface
     private void iniciarComponentes() {
-        imageVoltar = findViewById(R.id.imageBack);
         mapSearchView = findViewById(R.id.mapSearch);
         suggestionsListView = findViewById(R.id.listView);
         suggestionsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
