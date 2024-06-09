@@ -71,9 +71,9 @@ public class novo_caso extends AppCompatActivity {
         Map<String, Object> dadosCaso = new HashMap<>();
         dadosCaso.put("Nome Completo", nomeCompleto);
         dadosCaso.put("Endereço", endereco);
-        db.collection("Casos").add(dadosCaso);
-        finish();
-
+        db.collection("Casos").add(dadosCaso).addOnSuccessListener(documentReference ->{
+            finish();
+        });
     }
 
     private void iniciarComponetes(){
