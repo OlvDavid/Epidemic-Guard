@@ -39,8 +39,6 @@ public class menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(menu.this, mapa.class);
                 startActivity(i);
-                finish();
-
             }
         });
 

@@ -5,7 +5,10 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="perfil">
+      <SelectionState runConfigName="mapa">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="menu">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
