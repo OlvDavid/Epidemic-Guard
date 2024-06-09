@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -126,7 +127,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
                     map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                 }
 
-                return false;
+                return true;
             }
 
             @Override
@@ -244,6 +245,13 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
         suggestionsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         suggestionsListView.setAdapter(suggestionsAdapter);
 
+        suggestionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedSuggestion = (String) parent.getItemAtPosition(position);
+                mapSearchView.setQuery(selectedSuggestion, false);
+            }
+        });
 
     }
 
