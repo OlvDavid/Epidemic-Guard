@@ -3,8 +3,6 @@ package com.guard.epidemicguard;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
@@ -38,7 +36,6 @@ import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +43,7 @@ import javax.annotation.Nonnull;
 
 public class mapa extends AppCompatActivity implements OnMapReadyCallback {
 
+    // Declarações de variáveis
     private GoogleMap map;
     private SearchView mapSearchView;
     private ImageView imageVoltar;
@@ -58,12 +56,13 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
     FusedLocationProviderClient fusedLocationProviderClient;
     PlacesClient placesClient;
     private boolean permissionDenied = false;
-
+    
     SupportMapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.mapa);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.telaMapa), (v, insets) -> {
@@ -71,17 +70,23 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        
+
+
+
+        // Inicialização do Places SDK
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), "AIzaSyCNafzrtvA8mZzWMTJHx4MGFxfm1DL7mfA");
         }
         placesClient = Places.createClient(this);
 
+        // Inicialização do Location Provider
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
 
+        // Inicialização dos componentes da interface
         iniciarComponentes();
 
+        // Configuração do clique no botão de voltar
         imageVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,40 +96,25 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
 
+        // Configuração da barra de pesquisa
         mapSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
+                // Quando o usuário submete a pesquisa
                 buscarEnderecos(query);
-
-                String location = mapSearchView.getQuery().toString();
-                List<Address> addressList = null;
-
-                if(location != null){
-                    Geocoder geocoder = new Geocoder(mapa.this);
-
-                    try {
-                        addressList = geocoder.getFromLocationName(location, 1);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-                }
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
+                // Quando o texto na barra de pesquisa é alterado
                 buscarEnderecos(newText);
                 return false;
             }
         });
     }
 
+    // Método para buscar sugestões de endereços
     private void buscarEnderecos(String query) {
         AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
 
@@ -142,7 +132,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
             if (sugestoes.isEmpty()) {
                 suggestionsListView.setVisibility(View.GONE);
             } else {
-                suggestionsAdapter.clear(); //
+                suggestionsAdapter.clear();
                 suggestionsAdapter.addAll(sugestoes);
                 suggestionsListView.setVisibility(View.VISIBLE);
             }
@@ -151,6 +141,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
         });
     }
 
+    // Método para obter a última localização conhecida do dispositivo
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, FINE_PERMISSION_REQUEST_CODE);
@@ -169,6 +160,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
         });
     }
 
+    // Método chamado quando o mapa está pronto para ser usado
     @Override
     public void onMapReady(@Nonnull GoogleMap googleMap) {
         map = googleMap;
@@ -177,6 +169,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
     }
 
+    // Método chamado quando o resultado da solicitação de permissão é recebido
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -189,11 +182,14 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
         }
     }
 
+    // Método para inicializar os componentes da interface
     private void iniciarComponentes() {
         imageVoltar = findViewById(R.id.imageBack);
         mapSearchView = findViewById(R.id.mapSearch);
         suggestionsListView = findViewById(R.id.listView);
         suggestionsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         suggestionsListView.setAdapter(suggestionsAdapter);
+
+
     }
 }
