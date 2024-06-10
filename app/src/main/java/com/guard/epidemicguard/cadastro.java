@@ -35,7 +35,7 @@ import java.util.Map;
 public class cadastro extends AppCompatActivity {
 
     private TextInputEditText editEmail, editSenha, editNome, editCPF, editConfirmeSenha;
-    private Button btnCadastrar;
+    private Button btnCadastrar, btnVoltar;
     FirebaseAuth usuario = FirebaseAuth.getInstance();
 
     String[] mensagens = {"Preencha todos os campos", "Cadastro realizado com sucesso"};
@@ -52,7 +52,16 @@ public class cadastro extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        inicarComponentes();
+        iniciarComponentes();
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(cadastro.this, login.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,10 +111,23 @@ public class cadastro extends AppCompatActivity {
 
                     salvarDadosUsuario();
 
+                    FirebaseAuth.getInstance().signOut();
+
                     Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
                     snackbar.show();
+                    snackbar.addCallback(new Snackbar.Callback(){
+                        @Override
+                        public void onDismissed(Snackbar snackbar, int event){
+                            super.onDismissed(snackbar, event);
+                                Intent intent = new Intent(cadastro.this, login.class);
+                                startActivity(intent);
+                                finish();
+
+                        }
+
+                    });
                 }else{
                     String erro;
                     try {
@@ -157,22 +179,17 @@ public class cadastro extends AppCompatActivity {
 
     }
 
-    public void voltar(View v){
-        Intent i = new Intent(this, login.class);
-        startActivity(i);
-        finish();
-    }
 
-    private void inicarComponentes(){
-
+    private void iniciarComponentes(){
         editNome = findViewById(R.id.editNome);
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
         editCPF = findViewById(R.id.editCpf);
-        btnCadastrar = findViewById(R.id.btnCadastrar);
         editConfirmeSenha = findViewById(R.id.editConfirmeSenha);
-
+        btnCadastrar = findViewById(R.id.btnCadastrar);
+        btnVoltar = findViewById(R.id.btnVoltar);
     }
+
 
     private boolean validarCPF(String cpf) {
         cpf = cpf.replaceAll("\\D", "");
