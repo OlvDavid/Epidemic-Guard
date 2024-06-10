@@ -46,7 +46,7 @@ public class perfil extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        inicarComponentes();
+        iniciarComponentes();
         imageVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +95,7 @@ public class perfil extends AppCompatActivity {
 
     }
 
-    private void inicarComponentes() {
+    private void iniciarComponentes() {
         imageVoltar = findViewById(R.id.imageBack);
         textNome = findViewById(R.id.textNome);
         textEmail = findViewById(R.id.textEmail);

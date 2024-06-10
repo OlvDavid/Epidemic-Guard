@@ -5,7 +5,7 @@
     android:id="@+id/telaNovoCaso"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#607D8B">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
@@ -14,6 +14,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
@@ -22,6 +24,7 @@
             android:id="@+id/editNomeCompleto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#CFD8DC"
             android:hint="Nome Completo"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Adicione abaixo os dados "
+        android:textColor="@color/cinza_claro"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +60,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="Endereço"
+        android:textColor="@color/cinza_claro"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +73,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="80dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
         app:layout_constraintEnd_toStartOf="@+id/textInputLayout9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
@@ -76,6 +83,7 @@
             android:id="@+id/editRua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#CFD8DC"
             android:hint="Rua"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -86,6 +94,8 @@
         android:layout_height="56dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
@@ -93,6 +103,7 @@
             android:id="@+id/editNumero"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="#CFD8DC"
             android:hint="Número"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -105,6 +116,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
@@ -113,6 +126,7 @@
             android:id="@+id/editBairro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#CFD8DC"
             android:hint="Bairro"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -124,6 +138,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
@@ -132,6 +148,7 @@
             android:id="@+id/editCidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#CFD8DC"
             android:hint="Cidade"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -143,6 +160,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
@@ -151,6 +170,7 @@
             android:id="@+id/editEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#CFD8DC"
             android:hint="Estado"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -162,8 +182,9 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="70dp"
-        android:backgroundTint="@color/cinza"
+        android:backgroundTint="#CFD8DC"
         android:text="Novo Caso"
+        android:textColor="@color/cinza_forte"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
