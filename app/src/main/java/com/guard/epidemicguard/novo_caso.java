@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class novo_caso extends AppCompatActivity {
 
-    private TextInputEditText editNomeCompleto, editEndereco;
+    private TextInputEditText editNomeCompleto, editRua, editNumero, editBairro, editCidade, editEstado;
     private Button btnNovoCaso;
     private ImageView imageVoltarCaso;
 
@@ -37,12 +37,17 @@ public class novo_caso extends AppCompatActivity {
         });
         iniciarComponetes();
 
+
         btnNovoCaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nomeCompleto = editNomeCompleto.getText().toString();
-                String endereco = editEndereco.getText().toString();
-                if(nomeCompleto.isEmpty() || endereco.isEmpty()) {
+                String bairro = editBairro.getText().toString();
+                String rua = editRua.getText().toString();
+                String numero = editNumero.getText().toString();
+                String cidade = editCidade.getText().toString();
+                String estado = editEstado.getText().toString();
+                if(nomeCompleto.isEmpty() || bairro.isEmpty() || rua.isEmpty() || numero.isEmpty() || cidade.isEmpty() || estado.isEmpty()) {
                     Toast.makeText(novo_caso.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
@@ -64,13 +69,17 @@ public class novo_caso extends AppCompatActivity {
 
     private void salvarDadosCaso(){
         String nomeCompleto = editNomeCompleto.getText().toString();
-        String endereco = editEndereco.getText().toString();
+        String bairro = editBairro.getText().toString();
+        String rua = editRua.getText().toString();
+        String numero = editNumero.getText().toString();
+        String cidade = editCidade.getText().toString();
+        String estado = editEstado.getText().toString();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> dadosCaso = new HashMap<>();
         dadosCaso.put("Nome Completo", nomeCompleto);
-        dadosCaso.put("Endereço", endereco);
+        dadosCaso.put("Endereço", rua + "," + numero + "," + bairro + "," + cidade + "," + estado);
         db.collection("Casos").add(dadosCaso).addOnSuccessListener(documentReference ->{
             finish();
         });
@@ -78,7 +87,11 @@ public class novo_caso extends AppCompatActivity {
 
     private void iniciarComponetes(){
         editNomeCompleto = findViewById(R.id.editNomeCompleto);
-        editEndereco = findViewById(R.id.editEndereco);
+        editBairro = findViewById(R.id.editBairro);
+        editCidade = findViewById(R.id.editCidade);
+        editEstado = findViewById(R.id.editEstado);
+        editRua = findViewById(R.id.editRua);
+        editNumero = findViewById(R.id.editNumero);
         btnNovoCaso = findViewById(R.id.btnNovoCaso);
         imageVoltarCaso = findViewById(R.id.imageVoltarCaso);
 
