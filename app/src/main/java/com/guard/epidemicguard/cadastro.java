@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class cadastro extends AppCompatActivity {
 
-    private EditText editEmail, editSenha, editNome, editCPF;
+    private TextInputEditText editEmail, editSenha, editNome, editCPF, editConfirmeSenha;
     private Button btnCadastrar;
     FirebaseAuth usuario = FirebaseAuth.getInstance();
 
@@ -60,10 +60,17 @@ public class cadastro extends AppCompatActivity {
                 String nome = editNome.getText().toString();
                 String email = editEmail.getText().toString();
                 String senha = editSenha.getText().toString();
+                String confirmeSenha = editConfirmeSenha.getText().toString();
                 String cpf = editCPF.getText().toString();
 
                 if(nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty()){
                     Snackbar snackbar = Snackbar.make(v, mensagens[0], Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.WHITE);
+                    snackbar.setTextColor(Color.BLACK);
+                    snackbar.show();
+
+                } else if (!senha.equals(confirmeSenha)) {
+                    Snackbar snackbar = Snackbar.make(v, "As senhas não coincidem", Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
                     snackbar.show();
@@ -157,11 +164,13 @@ public class cadastro extends AppCompatActivity {
     }
 
     private void inicarComponentes(){
+
         editNome = findViewById(R.id.editNome);
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
         editCPF = findViewById(R.id.editCpf);
         btnCadastrar = findViewById(R.id.btnCadastrar);
+        editConfirmeSenha = findViewById(R.id.editConfirmeSenha);
 
     }
 
