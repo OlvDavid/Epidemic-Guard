@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     android:background="#607D8B">
 
+    <View
+        android:id="@+id/containerTop"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/background_view_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
         android:layout_width="0dp"
@@ -45,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Adicione abaixo os dados "
-        android:textColor="@color/cinza_claro"
+        android:textColor="@color/cinza"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
