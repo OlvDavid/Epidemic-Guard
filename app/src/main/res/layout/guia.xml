@@ -28,21 +28,22 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="DENGUE"
+            android:layout_marginTop="16dp"
+            android:text="Dengue"
             android:textColor="@color/cinza_forte"
             android:textSize="34sp"
             android:textStyle="bold"
             android:typeface="monospace"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif"
             android:text="A dengue é uma doença infecciosa causada pelo vírus da dengue, pertencente à família Flaviviridae. Este vírus possui quatro sorotipos distintos (DEN-1, DEN-2, DEN-3 e DEN-4), o que significa que uma pessoa pode ser infectada até quatro vezes durante a vida, uma vez que a infecção por um sorotipo não confere imunidade contra os outros. A transmissão ocorre através da picada do mosquito Aedes aegypti, vetor principal, e do Aedes albopictus em menor escala."
@@ -51,9 +52,8 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintTop_toBottomOf="@+id/containerTop" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -61,9 +61,9 @@
             android:layout_height="157dp"
             android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="@+id/containerTop"
+            app:layout_constraintStart_toStartOf="@+id/containerTop"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/epidemic_guard" />
 
         <TextView
@@ -88,6 +88,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="A transmissão da dengue acontece quando a fêmea do mosquito Aedes aegypti pica uma pessoa infectada e, após um período de incubação do vírus no mosquito (aproximadamente 10 dias), ela se torna capaz de transmitir o vírus para outras pessoas. Este ciclo perpetua-se especialmente em áreas urbanas, onde a proliferação do mosquito é favorecida pela presença de água parada, necessária para a reprodução do vetor."
+            android:textAlignment="viewStart"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +129,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="A dengue pode se manifestar de forma assintomática ou apresentar sintomas que variam em intensidade. A doença é dividida em três fases clínicas:"
+            android:textAlignment="viewStart"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -454,8 +456,6 @@
             android:layout_height="30dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView10"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_arrow_back_24" />
