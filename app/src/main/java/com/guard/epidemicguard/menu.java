@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class menu extends AppCompatActivity {
 
-    private ImageView perfil, imageMapa, imageNovoCaso;
+    private ImageView perfil, imageMapa, imageNovoCaso, imageGuia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,14 @@ public class menu extends AppCompatActivity {
             }
         });
 
+        imageGuia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(menu.this, guia.class);
+                startActivity(i);
+            }
+        });
+
     }
     @SuppressLint("MissingSuperCall")
     @Override
@@ -77,5 +85,6 @@ public class menu extends AppCompatActivity {
         perfil = findViewById(R.id.imagePerfil);
         imageMapa = findViewById(R.id.imageMapa);
         imageNovoCaso = findViewById(R.id.imageNovoCaso);
+        imageGuia = findViewById(R.id.imageGuia);
     }
 }

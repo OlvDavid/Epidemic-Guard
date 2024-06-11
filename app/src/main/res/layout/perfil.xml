@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     android:background="#CFD8DC">
 
+    <View
+        android:id="@+id/containerTop"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/background_view_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"

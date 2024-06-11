@@ -8,4 +8,7 @@
     <color name="holo_purple">#E2E0E4</color>
     <color name="fundo">#D6D5C2</color>
     <color name="cinza_forte">#686767</color>
+    <color name="blue">#034474E6</color>
+    <color name="azul">#34474E</color>
+    <color name="preto_fraco">#242323</color>
 </resources>
