@@ -1,4 +1,4 @@
-package com.guard.epidemicguard;
+package com.guard.epidemicguard.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.guard.epidemicguard.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,9 +81,9 @@ public class novo_caso extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> dadosCaso = new HashMap<>();
-        dadosCaso.put("Nome Completo", nomeCompleto);
-        dadosCaso.put("Endereço", rua + " ," + numero + " - " + bairro + ", " + cidade + " - " + estado);
-        dadosCaso.put("Descrição", descricao);
+        dadosCaso.put("nome", nomeCompleto);
+        dadosCaso.put("endereco", rua + " ," + numero + " - " + bairro + ", " + cidade + " - " + estado);
+        dadosCaso.put("descricao", descricao);
         db.collection("Casos").add(dadosCaso).addOnSuccessListener(documentReference ->{
             finish();
         });

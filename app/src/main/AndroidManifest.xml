@@ -18,15 +18,15 @@
         android:theme="@style/Theme.EpidemicGuard"
         tools:targetApi="31">
         <activity
-            android:name=".casos_listados"
+            android:name=".activity.casos_listados"
             android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".novo_caso"
+            android:name=".activity.novo_caso"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".login"
+            android:name=".activity.login"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -36,23 +36,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".cadastro"
+            android:name=".activity.cadastro"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".menu"
+            android:name=".activity.menu"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".perfil"
+            android:name=".activity.perfil"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mapa"
+            android:name=".activity.mapa"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".guia"
+            android:name=".activity.guia"
             android:exported="true"
             android:screenOrientation="portrait" />
 

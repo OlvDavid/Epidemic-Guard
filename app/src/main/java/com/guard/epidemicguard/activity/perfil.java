@@ -1,6 +1,5 @@
-package com.guard.epidemicguard;
+package com.guard.epidemicguard.activity;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,6 +24,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.guard.epidemicguard.R;
 
 public class perfil extends AppCompatActivity {
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CFD8DC"
-    tools:context=".casos_listados">
+    tools:context=".activity.casos_listados">
 
     <View
         android:id="@+id/containerTop"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="164dp"
         android:text="Total de Casos: "
         android:textSize="20sp"
         android:textStyle="bold"
@@ -64,6 +64,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/epidemic_guard" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCasos"
+        android:layout_width="409dp"
+        android:layout_height="516dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTotalCasos" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

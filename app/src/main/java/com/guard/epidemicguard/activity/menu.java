@@ -1,4 +1,4 @@
-package com.guard.epidemicguard;
+package com.guard.epidemicguard.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.guard.epidemicguard.R;
 
 public class menu extends AppCompatActivity {
 

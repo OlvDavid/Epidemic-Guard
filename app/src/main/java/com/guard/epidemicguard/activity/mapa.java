@@ -1,7 +1,6 @@
-package com.guard.epidemicguard;
+package com.guard.epidemicguard.activity;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -41,6 +39,7 @@ import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRe
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.guard.epidemicguard.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -216,8 +215,8 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
         db.collection("Casos").get().addOnCompleteListener(task -> {
             if(task.isSuccessful()){
                 for(QueryDocumentSnapshot document : task.getResult()){
-                    String endereco = document.getString("Endereço");
-                    String nome = document.getString("Nome Completo");
+                    String endereco = document.getString("endereco");
+                    String nome = document.getString("nome");
 
                     executorService.execute(() -> {
                         LatLng latLng = geocodeAddress(endereco);

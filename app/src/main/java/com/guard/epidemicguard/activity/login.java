@@ -1,4 +1,4 @@
-package com.guard.epidemicguard;
+package com.guard.epidemicguard.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +25,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.guard.epidemicguard.R;
 
 public class login extends AppCompatActivity {
 
