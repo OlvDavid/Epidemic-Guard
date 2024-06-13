@@ -3,7 +3,9 @@ package com.guard.epidemicguard;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -18,7 +20,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class casos_listados extends AppCompatActivity {
 
     private ImageView imageVoltarLista;
-
     private TextView textTotalCasos;
 
     @Override
@@ -42,9 +43,10 @@ public class casos_listados extends AppCompatActivity {
                 finish();
             }
         });
-        totalCasos();
-    }
 
+        totalCasos();
+
+    }
     private void totalCasos(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 

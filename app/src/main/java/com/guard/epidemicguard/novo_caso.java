@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class novo_caso extends AppCompatActivity {
 
-    private TextInputEditText editNomeCompleto, editRua, editNumero, editBairro, editCidade, editEstado;
+    private TextInputEditText editNomeCompleto, editRua, editNumero, editBairro, editCidade, editEstado, editDescricao;
     private Button btnNovoCaso;
     private ImageView imageVoltarCaso;
 
@@ -47,7 +47,8 @@ public class novo_caso extends AppCompatActivity {
                 String numero = editNumero.getText().toString();
                 String cidade = editCidade.getText().toString();
                 String estado = editEstado.getText().toString();
-                if(nomeCompleto.isEmpty() || bairro.isEmpty() || rua.isEmpty() || numero.isEmpty() || cidade.isEmpty() || estado.isEmpty()) {
+                String descricao = editDescricao.getText().toString();
+                if(nomeCompleto.isEmpty() || bairro.isEmpty() || rua.isEmpty() || numero.isEmpty() || cidade.isEmpty() || estado.isEmpty() || descricao.isEmpty()) {
                     Toast.makeText(novo_caso.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
@@ -74,12 +75,14 @@ public class novo_caso extends AppCompatActivity {
         String numero = editNumero.getText().toString();
         String cidade = editCidade.getText().toString();
         String estado = editEstado.getText().toString();
+        String descricao = editDescricao.getText().toString();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> dadosCaso = new HashMap<>();
         dadosCaso.put("Nome Completo", nomeCompleto);
-        dadosCaso.put("Endereço", rua + "," + numero + "," + bairro + "," + cidade + "," + estado);
+        dadosCaso.put("Endereço", rua + " ," + numero + " - " + bairro + ", " + cidade + " - " + estado);
+        dadosCaso.put("Descrição", descricao);
         db.collection("Casos").add(dadosCaso).addOnSuccessListener(documentReference ->{
             finish();
         });
@@ -94,6 +97,7 @@ public class novo_caso extends AppCompatActivity {
         editNumero = findViewById(R.id.editNumero);
         btnNovoCaso = findViewById(R.id.btnNovoCaso);
         imageVoltarCaso = findViewById(R.id.imageVoltarCaso);
+        editDescricao  = findViewById(R.id.editDescricao);
 
     }
 }

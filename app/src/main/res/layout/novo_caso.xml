@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/telaNovoCaso"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -94,6 +101,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#CFD8DC"
             android:hint="Rua"
+            android:lines="1"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,15 +197,66 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="70dp"
         android:backgroundTint="#CFD8DC"
         android:text="Novo Caso"
         android:textColor="@color/cinza_forte"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        app:boxStrokeColor="@color/cinza_claro"
+        app:hintTextColor="@color/cinza_forte"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CFD8DC"
+            android:hint="Descrição"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Descrição do caso"
+        android:textColor="@color/cinza_claro"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="100dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNovoCaso"
+        app:srcCompat="@drawable/epidemic_guard" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
