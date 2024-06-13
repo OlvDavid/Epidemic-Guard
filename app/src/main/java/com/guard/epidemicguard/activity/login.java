@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
@@ -32,6 +35,7 @@ public class login extends AppCompatActivity {
     private Button btnCadastrar, btnEntrar;
     private TextInputEditText editEmail, editSenha;
     private ProgressBar progressBar;
+    private ImageView imageMostrarSenha;
 
     String[] mensagens = {"Preencha todos os campos",};
 
@@ -46,6 +50,21 @@ public class login extends AppCompatActivity {
             return insets;
         });
         iniciarComponetes();
+
+        imageMostrarSenha.setImageResource(R.drawable.senha_aberta_24);
+        imageMostrarSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    editSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    imageMostrarSenha.setImageResource(R.drawable.senha_aberta_24);
+                }else{
+                    editSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imageMostrarSenha.setImageResource(R.drawable.senha_fechada_24);
+                }
+            }
+        });
+
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +162,7 @@ public class login extends AppCompatActivity {
         editSenha = findViewById(R.id.editSenha);
         btnEntrar = findViewById(R.id.btnEntrar);
         progressBar = findViewById(R.id.progressBar);
+        imageMostrarSenha = findViewById(R.id.imageMostrarSenha);
     }
 }
 
