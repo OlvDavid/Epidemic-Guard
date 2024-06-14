@@ -21,9 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/comfortaa_light"
         android:text="CADASTRAR-SE"
-        android:textColor="@color/cinza"
+        android:textColor="@color/cinza_forte"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +79,7 @@
             android:inputType="textPassword"
             android:maxLength="29"
             android:singleLine="true"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -182,7 +183,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/comfortaa_bold"
         android:text="Já possui conta?"
+        android:textColor="@color/cinza_claro"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

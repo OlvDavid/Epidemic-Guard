@@ -63,13 +63,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
+            android:fontFamily="@font/comfortaa_light"
             android:text="Adicione abaixo os dados "
-            android:textColor="@color/cinza"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.216"
-            app:layout_constraintStart_toEndOf="@+id/imageVoltarCaso"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -78,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/comfortaa_light"
             android:text="Endereço"
             android:textColor="@color/cinza_claro"
             android:textSize="20sp"
@@ -253,6 +254,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/comfortaa_light"
             android:text="Descrição do caso"
             android:textColor="@color/cinza_claro"
             android:textSize="20sp"
@@ -276,12 +278,13 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="276dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="22dp"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/containerTop"
+            app:layout_constraintVertical_bias="0.428"
             app:srcCompat="@drawable/locationpin" />
 
 
