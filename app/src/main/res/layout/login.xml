@@ -47,10 +47,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#CFD8DC"
-            android:fontFamily="monospace"
             android:hint="Email"
             android:maxLength="30"
+            android:nestedScrollingEnabled="true"
+            android:singleLine="true"
             android:textStyle="bold" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -71,10 +73,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#CFD8DC"
-            android:fontFamily="monospace"
             android:hint="Senha"
             android:inputType="text|textPassword"
             android:maxLength="30"
+            android:nestedScrollingEnabled="true"
+            android:singleLine="true"
             android:textStyle="bold" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,7 +90,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="110dp"
         android:backgroundTint="#CFD8DC"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif"
         android:text="ENTRAR"
         android:textColor="@color/cinza_forte"
         android:textStyle="bold"
@@ -114,7 +117,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="125dp"
         android:backgroundTint="#CFD8DC"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif"
         android:onClick="cadastrar"
         android:text="CADASTRAR"
         android:textColor="@color/cinza_forte"
@@ -142,6 +145,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textInputLayout2"
-        tools:srcCompat="@drawable/senha_aberta_24" />
+        tools:srcCompat="@drawable/hide" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+        app:srcCompat="@drawable/mail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

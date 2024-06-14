@@ -51,16 +51,16 @@ public class login extends AppCompatActivity {
         });
         iniciarComponetes();
 
-        imageMostrarSenha.setImageResource(R.drawable.senha_aberta_24);
+        imageMostrarSenha.setImageResource(R.drawable.hide);
         imageMostrarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
                     editSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    imageMostrarSenha.setImageResource(R.drawable.senha_aberta_24);
+                    imageMostrarSenha.setImageResource(R.drawable.hide);
                 }else{
                     editSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    imageMostrarSenha.setImageResource(R.drawable.senha_fechada_24);
+                    imageMostrarSenha.setImageResource(R.drawable.view);
                 }
             }
         });

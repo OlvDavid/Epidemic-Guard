@@ -3,9 +3,12 @@ package com.guard.epidemicguard.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -37,10 +40,12 @@ public class cadastro extends AppCompatActivity {
 
     private TextInputEditText editEmail, editSenha, editNome, editCPF, editConfirmeSenha;
     private Button btnCadastrar, btnVoltar;
+    private ImageView imageMostrarSenha, imageMostrarConfirmeSenha;
     FirebaseAuth usuario = FirebaseAuth.getInstance();
 
     String[] mensagens = {"Preencha todos os campos", "Cadastro realizado com sucesso"};
     String usuarioID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,32 @@ public class cadastro extends AppCompatActivity {
             return insets;
         });
         iniciarComponentes();
+
+        imageMostrarSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    editSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    imageMostrarSenha.setImageResource(R.drawable.hide);
+                }else{
+                    editSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imageMostrarSenha.setImageResource(R.drawable.view);
+                }
+            }
+        });
+
+        imageMostrarConfirmeSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    editSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    imageMostrarConfirmeSenha.setImageResource(R.drawable.hide);
+                }else{
+                    editSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imageMostrarConfirmeSenha.setImageResource(R.drawable.view);
+                }
+            }
+        });
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,6 +220,8 @@ public class cadastro extends AppCompatActivity {
         editConfirmeSenha = findViewById(R.id.editConfirmeSenha);
         btnCadastrar = findViewById(R.id.btnCadastrar);
         btnVoltar = findViewById(R.id.btnVoltar);
+        imageMostrarSenha = findViewById(R.id.imageMostrarSenhaC);
+        imageMostrarConfirmeSenha = findViewById(R.id.imageMostrarConfirmeSenha);
     }
 
 

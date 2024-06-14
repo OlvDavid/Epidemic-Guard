@@ -51,6 +51,8 @@
             android:fontFamily="sans-serif"
             android:hint="Email"
             android:maxLength="29"
+            android:nestedScrollingEnabled="true"
+            android:singleLine="true"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,6 +78,7 @@
             android:hint="Senha"
             android:inputType="textPassword"
             android:maxLength="29"
+            android:singleLine="true"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,6 +103,7 @@
             android:fontFamily="sans-serif"
             android:hint="Confirmar Senha"
             android:inputType="textPassword"
+            android:nestedScrollingEnabled="true"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,6 +128,8 @@
             android:fontFamily="sans-serif"
             android:hint=" Nome Completo"
             android:maxLength="29"
+            android:nestedScrollingEnabled="true"
+            android:singleLine="true"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -149,6 +155,8 @@
             android:hint="CPF"
             android:inputType="number"
             android:maxLength="29"
+            android:nestedScrollingEnabled="true"
+            android:singleLine="true"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -196,4 +204,54 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/imageMostrarSenhaC"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout4"
+        app:srcCompat="@drawable/hide" />
+
+    <ImageView
+        android:id="@+id/imageMostrarConfirmeSenha"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout13"
+        app:srcCompat="@drawable/hide" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout3"
+        app:srcCompat="@drawable/mail" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout5"
+        app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout6"
+        app:srcCompat="@drawable/card" />
 </androidx.constraintlayout.widget.ConstraintLayout>
