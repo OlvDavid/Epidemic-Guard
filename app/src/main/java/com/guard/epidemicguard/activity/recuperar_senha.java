@@ -79,7 +79,7 @@ public class recuperar_senha extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(recuperar_senha.this, "Email não cadastrado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(recuperar_senha.this, "Digite um email válido", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.INVISIBLE);
                 btnRecuperar.setVisibility(View.VISIBLE);
             }

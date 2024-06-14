@@ -21,6 +21,7 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 media3-common = { group = "androidx.media3", name = "media3-common", version.ref = "media3Common" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version = "1.0.0" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
