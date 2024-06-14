@@ -18,9 +18,13 @@
         android:theme="@style/Theme.EpidemicGuard"
         tools:targetApi="31">
         <activity
+            android:name=".activity.recuperar_senha"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".activity.casos_listados"
-            android:screenOrientation="portrait"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.novo_caso"
             android:exported="true"
