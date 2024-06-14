@@ -36,8 +36,9 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="50dp"
-        app:boxStrokeColor="@color/cinza_claro"
-        app:hintTextColor="@color/cinza_forte"
+        app:boxStrokeColor="#CFD8DC"
+        app:cursorColor="#CFD8DC"
+        app:hintTextColor="#CFD8DC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -46,11 +47,12 @@
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#CFD8DC"
+            android:backgroundTint="#607D8B"
             android:hint="Email"
             android:maxLength="30"
             android:nestedScrollingEnabled="true"
             android:singleLine="true"
+            android:textColor="#CFD8DC"
             android:textStyle="bold" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -62,8 +64,9 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="50dp"
-        app:boxStrokeColor="@color/cinza_claro2"
-        app:hintTextColor="@color/cinza_forte"
+        app:boxStrokeColor="#CFD8DC"
+        app:cursorColor="#CFD8DC"
+        app:hintTextColor="#CFD8DC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -72,12 +75,13 @@
             android:id="@+id/editSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#CFD8DC"
+            android:backgroundTint="#607D8B"
             android:hint="Senha"
             android:inputType="text|textPassword"
             android:maxLength="30"
             android:nestedScrollingEnabled="true"
             android:singleLine="true"
+            android:textColor="#CFD8DC"
             android:textStyle="bold" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,24 +91,26 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="110dp"
         android:backgroundTint="#CFD8DC"
         android:fontFamily="sans-serif"
         android:text="ENTRAR"
+        android:textAllCaps="false"
         android:textColor="@color/cinza_forte"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/textEsqueciSenha" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/comfortaa_bold"
         android:text="Não possui conta?"
+        android:textColor="#CFD8DC"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,10 +172,11 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/comfortaa_bold"
         android:text="Esqueci minha senha"
+        android:textAllCaps="false"
         android:textColor="#CFD8DC"
+        android:textColorLink="#C11111"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />

@@ -71,9 +71,9 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
-        app:boxStrokeColor="@color/azul"
-        app:cursorColor="@color/black"
-        app:hintTextColor="@color/black"
+        app:boxStrokeColor="#FF9800"
+        app:cursorColor="#FF9800"
+        app:hintTextColor="#FF9800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39">

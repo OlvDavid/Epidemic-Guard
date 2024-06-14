@@ -12,17 +12,7 @@
         android:id="@+id/telaNovoCaso"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#607D8B">
-
-        <View
-            android:id="@+id/containerTop"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/background_view_top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:background="#CFD8DC">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout7"
@@ -31,8 +21,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:boxStrokeColor="@color/cinza_claro"
-            app:hintTextColor="@color/cinza_forte"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
+            app:hintTextColor="#607D8B"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8">
@@ -62,10 +53,10 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/comfortaa_light"
             android:text="Adicione abaixo os dados "
-            android:textColor="@color/black"
+            android:textColor="#607D8B"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +71,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/comfortaa_light"
             android:text="Endereço"
-            android:textColor="@color/cinza_claro"
+            android:textColor="#607D8B"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +84,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="80dp"
-            app:boxStrokeColor="@color/cinza_claro"
-            app:hintTextColor="@color/cinza_forte"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
+            app:hintTextColor="#607D8B"
             app:layout_constraintEnd_toStartOf="@+id/textInputLayout9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9">
@@ -116,8 +108,9 @@
             android:layout_height="56dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:boxStrokeColor="@color/cinza_claro"
-            app:hintTextColor="@color/cinza_forte"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
+            app:hintTextColor="#607D8B"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9">
 
@@ -141,8 +134,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:boxStrokeColor="@color/cinza_claro"
-            app:hintTextColor="@color/cinza_forte"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
+            app:hintTextColor="#607D8B"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
@@ -165,7 +159,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:boxStrokeColor="@color/cinza_claro"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
             app:hintTextColor="@color/cinza_forte"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -189,8 +184,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:boxStrokeColor="@color/cinza_claro"
-            app:hintTextColor="@color/cinza_forte"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
+            app:hintTextColor="#607D8B"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
@@ -213,9 +209,9 @@
             android:layout_marginStart="70dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="70dp"
-            android:backgroundTint="#CFD8DC"
+            android:backgroundTint="#607D8B"
             android:text="Novo Caso"
-            android:textColor="@color/cinza_forte"
+            android:textColor="#CFD8DC"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -229,8 +225,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            app:boxStrokeColor="@color/cinza_claro"
-            app:hintTextColor="@color/cinza_forte"
+            app:boxStrokeColor="#607D8B"
+            app:cursorColor="#607D8B"
+            app:hintTextColor="#607D8B"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -256,7 +253,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/comfortaa_light"
             android:text="Descrição do caso"
-            android:textColor="@color/cinza_claro"
+            android:textColor="#607D8B"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -272,20 +269,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnNovoCaso"
             app:srcCompat="@drawable/epidemic_guard" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="276dp"
-            android:layout_marginBottom="22dp"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/containerTop"
-            app:layout_constraintVertical_bias="0.428"
-            app:srcCompat="@drawable/locationpin" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
