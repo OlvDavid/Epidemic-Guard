@@ -36,6 +36,7 @@
                 android:hint="Nome Completo"
                 android:nestedScrollingEnabled="true"
                 android:singleLine="true"
+                android:textColor="#607D8B"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,6 +100,7 @@
                 android:hint="Rua"
                 android:nestedScrollingEnabled="true"
                 android:singleLine="true"
+                android:textColor="#607D8B"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,6 +125,7 @@
                 android:inputType="number"
                 android:nestedScrollingEnabled="true"
                 android:singleLine="true"
+                android:textColor="#607D8B"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -149,6 +152,7 @@
                 android:hint="Bairro"
                 android:nestedScrollingEnabled="true"
                 android:singleLine="true"
+                android:textColor="#607D8B"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,6 +178,7 @@
                 android:hint="Cidade"
                 android:nestedScrollingEnabled="true"
                 android:singleLine="true"
+                android:textColor="#607D8B"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -199,6 +204,7 @@
                 android:hint="Estado"
                 android:nestedScrollingEnabled="true"
                 android:singleLine="true"
+                android:textColor="#607D8B"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -240,7 +246,8 @@
                 android:background="#CFD8DC"
                 android:hint="Descrição"
                 android:nestedScrollingEnabled="true"
-                android:singleLine="true"
+                android:singleLine="false"
+                android:textColor="#607D8B"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
