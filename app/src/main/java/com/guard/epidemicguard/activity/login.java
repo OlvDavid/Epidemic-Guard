@@ -111,6 +111,7 @@ public class login extends AppCompatActivity {
 
                 if(task.isSuccessful()){
                     progressBar.setVisibility(View.VISIBLE);
+                    btnEntrar.setVisibility(View.INVISIBLE);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -124,6 +125,8 @@ public class login extends AppCompatActivity {
                         throw task.getException();
                     }catch (Exception e){
                         erro = "Erro ao logar usuário";
+                        progressBar.setVisibility(View.INVISIBLE);
+                        btnEntrar.setVisibility(View.VISIBLE);
                     }
                     Snackbar snackbar = Snackbar.make(v, erro, Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
