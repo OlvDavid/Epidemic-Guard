@@ -76,11 +76,11 @@ public class cadastro extends AppCompatActivity {
         imageMostrarConfirmeSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
-                    editSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                if(editConfirmeSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    editConfirmeSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     imageMostrarConfirmeSenha.setImageResource(R.drawable.hide);
                 }else{
-                    editSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    editConfirmeSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     imageMostrarConfirmeSenha.setImageResource(R.drawable.view);
                 }
             }
@@ -187,6 +187,8 @@ public class cadastro extends AppCompatActivity {
         String nome = editNome.getText().toString();
         String cpf = editCPF.getText().toString();
 
+        cpf = formatarCPF(cpf);
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String,Object> usuarios = new HashMap<>();
@@ -226,10 +228,62 @@ public class cadastro extends AppCompatActivity {
 
 
     private boolean validarCPF(String cpf) {
-        cpf = cpf.replaceAll("\\D", "");
+        // Remove caracteres não numéricos
+        cpf = cpf.replaceAll("[^0-9]", "");
 
-        return cpf.length() == 11;
+        // Verifica se o CPF tem 11 caracteres numéricos
+        if (cpf.length() != 11) {
+            return false;
+        }
+
+        // Verifica se todos os caracteres são dígitos
+        for (int i = 0; i < cpf.length(); i++) {
+            if (!Character.isDigit(cpf.charAt(i))) {
+                return false;
+            }
+        }
+
+        // Verifica dígito verificador
+        int[] numbers = new int[11];
+        for (int i = 0; i < 11; i++) {
+            numbers[i] = Character.getNumericValue(cpf.charAt(i));
+        }
+
+        // Calcula primeiro dígito verificador
+        int sum = 0;
+        for (int i = 0; i < 9; i++) {
+            sum += numbers[i] * (10 - i);
+        }
+        int remainder = sum % 11;
+        int digit1 = (remainder < 2) ? 0 : (11 - remainder);
+
+        // Verifica primeiro dígito verificador
+        if (numbers[9] != digit1) {
+            return false;
+        }
+
+        // Calcula segundo dígito verificador
+        sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += numbers[i] * (11 - i);
+        }
+        remainder = sum % 11;
+        int digit2 = (remainder < 2) ? 0 : (11 - remainder);
+
+        // Verifica segundo dígito verificador
+        if (numbers[10] != digit2) {
+            return false;
+        }
+
+        return true;
     }
 
+    private String formatarCPF(String cpf) {
+        // Remove caracteres não numéricos
+        cpf = cpf.replaceAll("[^0-9]", "");
+
+        // Formata o CPF com os caracteres especiais
+        return cpf.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+    }
 
 }
