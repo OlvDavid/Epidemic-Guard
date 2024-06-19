@@ -63,10 +63,10 @@ public class cadastro extends AppCompatActivity {
         imageMostrarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                if (editSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())) {
                     editSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     imageMostrarSenha.setImageResource(R.drawable.hide);
-                }else{
+                } else {
                     editSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     imageMostrarSenha.setImageResource(R.drawable.view);
                 }
@@ -76,10 +76,10 @@ public class cadastro extends AppCompatActivity {
         imageMostrarConfirmeSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editConfirmeSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                if (editConfirmeSenha.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())) {
                     editConfirmeSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     imageMostrarConfirmeSenha.setImageResource(R.drawable.hide);
-                }else{
+                } else {
                     editConfirmeSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     imageMostrarConfirmeSenha.setImageResource(R.drawable.view);
                 }
@@ -104,7 +104,7 @@ public class cadastro extends AppCompatActivity {
                 String confirmeSenha = editConfirmeSenha.getText().toString();
                 String cpf = editCPF.getText().toString();
 
-                if(nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty()){
+                if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || cpf.isEmpty()) {
                     Snackbar snackbar = Snackbar.make(v, mensagens[0], Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
@@ -115,13 +115,14 @@ public class cadastro extends AppCompatActivity {
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
                     snackbar.show();
-                }else{
+                } else {
                     cadastrarUsuario(v);
                 }
             }
         });
     }
-    private void cadastrarUsuario(View v){
+
+    private void cadastrarUsuario(View v) {
 
         String email = editEmail.getText().toString();
         String senha = editSenha.getText().toString();
@@ -139,7 +140,7 @@ public class cadastro extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     salvarDadosUsuario();
 
@@ -149,28 +150,28 @@ public class cadastro extends AppCompatActivity {
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
                     snackbar.show();
-                    snackbar.addCallback(new Snackbar.Callback(){
+                    snackbar.addCallback(new Snackbar.Callback() {
                         @Override
-                        public void onDismissed(Snackbar snackbar, int event){
+                        public void onDismissed(Snackbar snackbar, int event) {
                             super.onDismissed(snackbar, event);
-                                Intent intent = new Intent(cadastro.this, login.class);
-                                startActivity(intent);
-                                finish();
+                            Intent intent = new Intent(cadastro.this, login.class);
+                            startActivity(intent);
+                            finish();
 
                         }
 
                     });
-                }else{
+                } else {
                     String erro;
                     try {
                         throw task.getException();
-                    }catch (FirebaseAuthWeakPasswordException e) {
+                    } catch (FirebaseAuthWeakPasswordException e) {
                         erro = "Digite uma senha com no mínimo 6 caracteres";
-                    }catch (FirebaseAuthUserCollisionException e) {
+                    } catch (FirebaseAuthUserCollisionException e) {
                         erro = "Esta conta já esta cadastrada";
-                    }catch (FirebaseAuthInvalidCredentialsException e) {
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
                         erro = "Digite um e-mail válido";
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         erro = "Erro ao cadastrar usuário";
                     }
                     Snackbar snackbar = Snackbar.make(v, erro, Snackbar.LENGTH_SHORT);
@@ -183,7 +184,7 @@ public class cadastro extends AppCompatActivity {
         });
     }
 
-    private void salvarDadosUsuario(){
+    private void salvarDadosUsuario() {
         String nome = editNome.getText().toString();
         String cpf = editCPF.getText().toString();
 
@@ -191,7 +192,7 @@ public class cadastro extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        Map<String,Object> usuarios = new HashMap<>();
+        Map<String, Object> usuarios = new HashMap<>();
         usuarios.put("nome", nome);
         usuarios.put("CPF", cpf);
 
@@ -199,22 +200,22 @@ public class cadastro extends AppCompatActivity {
 
         DocumentReference documentReference = db.collection("Usuários").document(usuarioID);
         documentReference.set(usuarios).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Log.d("db","Sucesso ao salvar os dados");
-            }
-        }).
-         addOnFailureListener(new OnFailureListener() {
-             @Override
-             public void onFailure(@NonNull Exception e) {
-                 Log.d("db_error", "Erro ao salvar os dados" + e.toString());
-             }
-         });
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("db", "Sucesso ao salvar os dados");
+                    }
+                }).
+                addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db_error", "Erro ao salvar os dados" + e.toString());
+                    }
+                });
 
     }
 
 
-    private void iniciarComponentes(){
+    private void iniciarComponentes() {
         editNome = findViewById(R.id.editNome);
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
@@ -228,50 +229,46 @@ public class cadastro extends AppCompatActivity {
 
 
     private boolean validarCPF(String cpf) {
-        // Remove caracteres não numéricos
-        cpf = cpf.replaceAll("[^0-9]", "");
+        // Remover caracteres não numéricos
+        cpf = cpf.replaceAll("\\D", "");
 
-        // Verifica se o CPF tem 11 caracteres numéricos
+        // Verificar se o CPF possui 11 dígitos
         if (cpf.length() != 11) {
             return false;
         }
 
-        // Verifica se todos os caracteres são dígitos
-        for (int i = 0; i < cpf.length(); i++) {
-            if (!Character.isDigit(cpf.charAt(i))) {
-                return false;
-            }
-        }
-
-        // Verifica dígito verificador
-        int[] numbers = new int[11];
-        for (int i = 0; i < 11; i++) {
-            numbers[i] = Character.getNumericValue(cpf.charAt(i));
-        }
-
-        // Calcula primeiro dígito verificador
-        int sum = 0;
-        for (int i = 0; i < 9; i++) {
-            sum += numbers[i] * (10 - i);
-        }
-        int remainder = sum % 11;
-        int digit1 = (remainder < 2) ? 0 : (11 - remainder);
-
-        // Verifica primeiro dígito verificador
-        if (numbers[9] != digit1) {
+        // Verificar se todos os dígitos são iguais (caso especial de CPF inválido)
+        if (cpf.matches("(\\d)\\1{10}")) {
             return false;
         }
 
-        // Calcula segundo dígito verificador
-        sum = 0;
-        for (int i = 0; i < 10; i++) {
-            sum += numbers[i] * (11 - i);
-        }
-        remainder = sum % 11;
-        int digit2 = (remainder < 2) ? 0 : (11 - remainder);
+        // Calcular dígitos verificadores
+        int[] multiplicadoresPrimeiroDigito = {10, 9, 8, 7, 6, 5, 4, 3, 2};
+        int[] multiplicadoresSegundoDigito = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
 
-        // Verifica segundo dígito verificador
-        if (numbers[10] != digit2) {
+        int soma = 0;
+        int resto;
+
+        // Verificação do primeiro dígito verificador
+        for (int i = 0; i < 9; i++) {
+            soma += Integer.parseInt(String.valueOf(cpf.charAt(i))) * multiplicadoresPrimeiroDigito[i];
+        }
+
+        resto = soma % 11;
+        int digitoVerificador1 = resto < 2 ? 0 : 11 - resto;
+        if (digitoVerificador1 != Integer.parseInt(String.valueOf(cpf.charAt(9)))) {
+            return false;
+        }
+
+        // Verificação do segundo dígito verificador
+        soma = 0;
+        for (int i = 0; i < 10; i++) {
+            soma += Integer.parseInt(String.valueOf(cpf.charAt(i))) * multiplicadoresSegundoDigito[i];
+        }
+
+        resto = soma % 11;
+        int digitoVerificador2 = resto < 2 ? 0 : 11 - resto;
+        if (digitoVerificador2 != Integer.parseInt(String.valueOf(cpf.charAt(10)))) {
             return false;
         }
 
@@ -285,5 +282,5 @@ public class cadastro extends AppCompatActivity {
         // Formata o CPF com os caracteres especiais
         return cpf.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
     }
-
 }
+
