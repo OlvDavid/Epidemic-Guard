@@ -17,8 +17,15 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.guard.epidemicguard.R;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class novo_caso extends AppCompatActivity {
 
@@ -38,7 +45,6 @@ public class novo_caso extends AppCompatActivity {
         });
         iniciarComponetes();
 
-
         btnNovoCaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,8 +59,20 @@ public class novo_caso extends AppCompatActivity {
                     Toast.makeText(novo_caso.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
-                    Toast.makeText(novo_caso.this, "Caso cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-                    salvarDadosCaso();
+                    // Valida o endereço
+                    validarEndereco(rua, numero, bairro, cidade, estado, new EnderecoValidationCallback() {
+                        @Override
+                        public void onValidationSuccess() {
+                            Toast.makeText(novo_caso.this, "Caso cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                            btnNovoCaso.setVisibility(View.INVISIBLE);
+                            salvarDadosCaso();
+                        }
+
+                        @Override
+                        public void onValidationFailure() {
+                            Toast.makeText(novo_caso.this, "Endereço inválido", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });
@@ -99,6 +117,44 @@ public class novo_caso extends AppCompatActivity {
         btnNovoCaso = findViewById(R.id.btnNovoCaso);
         imageVoltarCaso = findViewById(R.id.imageVoltarCaso);
         editDescricao  = findViewById(R.id.editDescricao);
+    }
 
+    private void validarEndereco(String rua, String numero, String bairro, String cidade, String estado, EnderecoValidationCallback callback) {
+        new Thread(() -> {
+            try {
+                String endereco = rua + " " + numero + " " + bairro + " " + cidade + " " + estado;
+                String apiKey = "AIzaSyCNafzrtvA8mZzWMTJHx4MGFxfm1DL7mfA";
+                String urlString = "https://maps.googleapis.com/maps/api/geocode/json?address=" + endereco + "&key=" + apiKey;
+                URL url = new URL(urlString);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String inputLine;
+                StringBuilder content = new StringBuilder();
+                while ((inputLine = in.readLine()) != null) {
+                    content.append(inputLine);
+                }
+
+                in.close();
+                conn.disconnect();
+
+                JSONObject json = new JSONObject(content.toString());
+                JSONArray results = json.getJSONArray("results");
+                if (results.length() > 0) {
+                    runOnUiThread(callback::onValidationSuccess);
+                } else {
+                    runOnUiThread(callback::onValidationFailure);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                runOnUiThread(callback::onValidationFailure);
+            }
+        }).start();
+    }
+
+    interface EnderecoValidationCallback {
+        void onValidationSuccess();
+        void onValidationFailure();
     }
 }

@@ -222,7 +222,7 @@ public class mapa extends AppCompatActivity implements OnMapReadyCallback {
                         LatLng latLng = geocodeAddress(endereco);
                         runOnUiThread(() -> {
                             if (latLng != null) {
-                                map.addMarker(new MarkerOptions().position(latLng).title("Caso de dengue").icon(BitmapDescriptorFactory.fromResource(R.drawable.mosquito)));
+                                map.addMarker(new MarkerOptions().position(latLng).title(endereco).icon(BitmapDescriptorFactory.fromResource(R.drawable.mosquito)));
                             }
                         });
                     });
